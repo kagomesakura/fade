@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <h1 class="fin" style="text-align:center; color:white;">Fade In</h1>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+<style>
+body {
+  background-color: yellow;
+}
+.fin {
+  font-weight: 1000;
+  font-size: 5em;
+
+}
+.h1 {
+
+}
+</style>
+</head>
+
+<script>
+var textWrapper = document.querySelector('.fin');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.fin .letter',
+    opacity: [0,1],
+    easing: "easeInOutQuad",
+    duration: 2200,
+    delay: (el, i) => 200 * (i+1)
+  }).add({
+    targets: '.fin',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 800
+  });
+      </script>
+  </head>
